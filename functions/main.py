@@ -35,6 +35,6 @@ def get_render_func(bank, on_bank, device):
     return settings.banks[bank]["on_banks"][on_bank][device]
 
 
-def get_time():
+def get_now():
     tz = pytz.timezone("Asia/Vladivostok")
     return datetime.now().astimezone(tz=tz)

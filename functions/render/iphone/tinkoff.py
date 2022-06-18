@@ -2,7 +2,7 @@ from io import BytesIO
 
 from PIL import Image, ImageDraw, ImageFont
 
-from functions.main import grade, get_time
+from functions.main import grade, get_now
 from functions.render import settings
 
 x = 1125
@@ -37,7 +37,7 @@ async def tinkoff_tinkoff_phone_iphone(
     # Время
     draw.text(
         xy=(68, 43),
-        text=f"{get_time():%H:%M}",
+        text=f"{get_now():%H:%M}",
         font=ImageFont.truetype(
             font=settings.font_iphone_bold,
             size=44,

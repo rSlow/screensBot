@@ -3,7 +3,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 
 from functions.render import settings
-from functions.main import grade, get_time
+from functions.main import grade, get_now
 
 
 async def sberbank_sberbank_phone_android(
@@ -43,7 +43,7 @@ async def sberbank_sberbank_phone_android(
     # Время
     draw.text(
         xy=(45, 35),
-        text=f"{get_time():%H:%M}",
+        text=f"{get_now():%H:%M}",
         font=ImageFont.truetype(
             font=settings.font_android,
             size=32,

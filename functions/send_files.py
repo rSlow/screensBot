@@ -1,8 +1,9 @@
 import logging
-from datetime import datetime
 
 from aiogram import types
 from io import BytesIO
+
+from functions.main import get_now
 from keyboards.main import CancelKeyboard
 
 
@@ -14,7 +15,7 @@ async def send_file(message: types.Message,
 
     photo = types.InputFile(
         path_or_bytesio=image_io,
-        filename=f"{datetime.now():%d_%m_%y__%H_%M_%S}.PNG"
+        filename=f"{get_now():%d_%m_%y__%H_%M_%S}.PNG"
     )
 
     await message.answer_document(
