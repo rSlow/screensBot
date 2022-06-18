@@ -1,13 +1,17 @@
-from datetime import datetime
 from io import BytesIO
 
 from PIL import Image, ImageDraw, ImageFont
 
 from functions.render import settings
 from functions.main import grade
+from aiogram.types import Message
 
 
-async def sberbank_sberbank_phone_android(name, transfer_sum):
+async def sberbank_sberbank_phone_android(
+        name,
+        transfer_sum,
+        message: Message
+):
     str_transfer_sum = f"{transfer_sum}".replace(".", ",")
 
     image_io = BytesIO()
@@ -41,7 +45,7 @@ async def sberbank_sberbank_phone_android(name, transfer_sum):
     # Время
     draw.text(
         xy=(45, 35),
-        text=f"{datetime.now():%H:%M}",
+        text=f"{message.date:%H:%M}",
         font=ImageFont.truetype(
             font=settings.font_android,
             size=32,

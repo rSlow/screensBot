@@ -118,7 +118,8 @@ async def tinkoff_send_file(message: types.Message, state: FSMContext):
             name=name,
             phone_num=phone_num,
             start_sum=start_sum,
-            transfer_sum=transfer_sum
+            transfer_sum=transfer_sum,
+            message=message
         )
 
         await send_files.send_file(

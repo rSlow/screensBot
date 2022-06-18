@@ -1,19 +1,22 @@
-from datetime import datetime
 from io import BytesIO
 
 from PIL import Image, ImageDraw, ImageFont
 
 from functions.main import grade
 from functions.render import settings
+from aiogram.types import Message
 
 x = 1125
 y = 2436
 
 
-async def tinkoff_tinkoff_phone_iphone(name,
-                                       phone_num,
-                                       start_sum,
-                                       transfer_sum):
+async def tinkoff_tinkoff_phone_iphone(
+        name,
+        phone_num,
+        start_sum,
+        transfer_sum,
+        message: Message
+):
     str_start_sum = grade(f"{start_sum:.2f}".replace(".", ",")) + " ₽"
     str_transfer_sum = grade(f"{transfer_sum}".replace(".", ",")) + " ₽"
     str_end_sum = grade(f"{round(start_sum - transfer_sum, 2):.2f}".replace(".", ",")) + " ₽"
@@ -36,7 +39,7 @@ async def tinkoff_tinkoff_phone_iphone(name,
     # Время
     draw.text(
         xy=(68, 43),
-        text=f"{datetime.now():%H:%M}",
+        text=f"{message.date:%H:%M}",
         font=ImageFont.truetype(
             font=settings.font_iphone_bold,
             size=44,

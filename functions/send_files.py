@@ -11,6 +11,7 @@ async def send_file(message: types.Message,
                     bank,
                     on_bank,
                     device):
+
     photo = types.InputFile(
         path_or_bytesio=image_io,
         filename=f"{datetime.now():%d_%m_%y__%H_%M_%S}.PNG"
