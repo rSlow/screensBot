@@ -2,9 +2,8 @@ from io import BytesIO
 
 from PIL import Image, ImageDraw, ImageFont
 
-from functions.main import grade
+from functions.main import grade, get_time
 from functions.render import settings
-from aiogram.types import Message
 
 
 async def tinkoff_tinkoff_phone_android(
@@ -12,7 +11,6 @@ async def tinkoff_tinkoff_phone_android(
         phone_num,
         start_sum,
         transfer_sum,
-        message: Message
 ):
     str_start_sum = grade(f"{start_sum:.2f}".replace(".", ",")) + " ₽"
     str_transfer_sum = grade(f"{transfer_sum}".replace(".", ",")) + " ₽"
@@ -36,7 +34,7 @@ async def tinkoff_tinkoff_phone_android(
     # Время
     draw.text(
         xy=(45, 35),
-        text=f"{message.date:%H:%M}",
+        text=f"{get_time():%H:%M}",
         font=ImageFont.truetype(
             font=settings.font_android,
             size=32,

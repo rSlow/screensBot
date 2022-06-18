@@ -69,7 +69,6 @@ async def sberbank_send_file(message: types.Message, state: FSMContext):
         image_io = await render_func(
             name=name,
             transfer_sum=transfer_sum,
-            message=message
         )
 
         await send_files.send_file(

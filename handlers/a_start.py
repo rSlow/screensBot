@@ -17,7 +17,6 @@ async def start(message: types.Message, state: FSMContext):
         await state.finish()
 
     await Bank.start.set()
-    print(message.date)
 
     await message.answer(
         text="Добро пожаловать. Выберите тип устройства:",
