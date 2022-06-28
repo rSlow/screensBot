@@ -31,7 +31,7 @@ class DeviceKeyboard(types.ReplyKeyboardMarkup):
         super(DeviceKeyboard, self).__init__(resize_keyboard=True)
         self.add(*self.devices)
         # self.add("Тест")
-        self.add("На главную")
+        # self.add("На главную")
 
 
 class BanksKeyboard(types.ReplyKeyboardMarkup):
