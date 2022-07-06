@@ -32,7 +32,7 @@ async def tinkoff_form_name(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=TinkoffForm.wait_name)
 async def tinkoff_form_phone_num(message: types.Message, state: FSMContext):
-    name = validators.validate_name(name=message.text, words=2)
+    name = validators.validate_name(name=message.text)
     if name is not False:
         await TinkoffForm.next()
 

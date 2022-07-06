@@ -1,6 +1,6 @@
-def validate_name(name: str, words=3):
+def validate_name(name: str):
     list_initials = name.split()
-    if len(list_initials) < words:
+    if len(list_initials) < 1:
         return False
 
     last_initial = list_initials[-1]
@@ -15,9 +15,7 @@ def validate_name(name: str, words=3):
 
     first_initials.append(last_initial)
 
-    validated_name = " ".join(
-        map(str.capitalize, first_initials)
-    )
+    validated_name = " ".join(first_initials)
 
     return validated_name
 
